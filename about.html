@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Stars Experience</title>
+  <style>
+    body {
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .night {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Static background stars */
+    .static_star {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+      animation: twinkle 1.5s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Container for the 6 equal boxes */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns, evenly spaced */
+      grid-template-rows: repeat(2, 1fr); /* 2 rows, evenly spaced */
+      gap: 20px; /* Spacing between the boxes */
+      width: 80%;
+      max-width: 1000px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s, transform 0.3s;
+      position: absolute;
+      bottom: 20px;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Night Sky for Stars -->
+  <div class="night" id="night"></div>
+
+  <!-- 6 Equal Boxes Layout -->
+  <div class="grid-container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+    <div class="box">Box 6</div>
+  </div>
+
+  <!-- Back to Home Button -->
+  <a href="index.html" class="back-btn">Back to Home</a>
+
+  <script>
+    // Generate static background stars with random size
+    const nightSky = document.getElementById('night');
+    const staticStars = 500;  // Number of stars
+    const stars = [];
+
+    // Create stars
+    for (let i = 0; i < staticStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('static_star');
+      
+      const topPosition = Math.random() * 100 + '%';
+      const leftPosition = Math.random() * 100 + '%';
+      const size = Math.random() * 4 + 1 + 'px'; // Random size from 1px to 5px
+
+      star.style.top = topPosition;
+      star.style.left = leftPosition;
+      star.style.width = size;
+      star.style.height = size;
+
+      stars.push(star); // Store stars in array for later access
+      nightSky.appendChild(star);
+    }
+  </script>
+
+</body>
+</html>
