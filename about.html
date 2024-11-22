@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A static stars experience with a grid layout of 6 boxes, showcasing twinkling stars in a night sky." />
+  <meta name="keywords" content="stars, night sky, grid layout, static stars, web design, CSS animations" />
+  <meta name="author" content="Your Name" />
   <title>Static Stars Experience</title>
   <style>
     body {
@@ -57,15 +60,28 @@
 
     .box {
       background: rgba(0, 0, 0, 0.7);
+      width: 300px;
+      height: 200px;
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      font-size: 1.2rem;
       text-align: center;
       color: #fff;
+    }
+
+    .box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .box p {
+      font-size: 1rem;
+      line-height: 1.4;
+      margin: 5px 0;
     }
 
     /* Back Button */
@@ -96,12 +112,36 @@
 
   <!-- 6 Equal Boxes Layout -->
   <div class="grid-container">
-    <div class="box">Box 1</div>
-    <div class="box">Box 2</div>
-    <div class="box">Box 3</div>
-    <div class="box">Box 4</div>
-    <div class="box">Box 5</div>
-    <div class="box">Box 6</div>
+    <div class="box">
+      <h3>Box 1 Title</h3>
+      <p>This is the
+         description for Box 1.</p>
+    </div>
+    <div class="box">
+      <h3>Box 2 Title</h3>
+      <p>This is the
+         description for Box 2.</p>
+    </div>
+    <div class="box">
+      <h3>Box 3 Title</h3>
+      <p>This is the 
+        description for Box 3.</p>
+    </div>
+    <div class="box">
+      <h3>Box 4 Title</h3>
+      <p>This is the 
+        description for Box 4.</p>
+    </div>
+    <div class="box">
+      <h3>Box 5 Title</h3>
+      <p>This is the 
+        description for Box 5.</p>
+    </div>
+    <div class="box">
+      <h3>Box 6 Title</h3>
+      <p>This is the 
+        description for Box 6.</p>
+    </div>
   </div>
 
   <!-- Back to Home Button -->
